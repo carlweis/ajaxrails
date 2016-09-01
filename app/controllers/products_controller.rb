@@ -42,8 +42,8 @@ class ProductsController < ApplicationController
 
     def search_products
      @products = Product.search(params[:search])
-       .order(sort_column + ' ' + sort_direction)
-       .page(params[:page]).per(10)
+                        .order(sort_column + ' ' + sort_direction)
+                        .page(params[:page]).per(10)
     end
 
     def sort_column
