@@ -1,0 +1,11 @@
+tr
+  td= product.name
+  td= number_to_currency(product.cost)
+  td= number_to_currency(product.price)
+  td= number_with_delimiter(product.quantity)
+  td= number_to_currency(product.cost * product.quantity)
+  td= number_to_currency(product.price * product.quantity)
+  td= product_state_display(product.state)
+  td= product.released_at.strftime('%B %e, %Y')
+
+

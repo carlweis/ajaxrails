@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= yield(:title) ||  'Products Demo'
+    = stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'https://use.fontawesome.com/ee6d670237.js'
+    = javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
+    = csrf_meta_tags
+    = yield(:head)
+  body
+    = render 'layouts/navbar'
+    #main-container.container
+      = render 'layouts/flash'
+      .row
+        .col-md-3.col-sm-3(style='padding-top: 2em')
+          = render 'layouts/sidebar'
+        .col-md-9.col-sm-12
+          = content_tag :h1, yield(:title) if show_title?
+          = yield
